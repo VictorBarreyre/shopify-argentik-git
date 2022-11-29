@@ -1,0 +1,119 @@
+{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+
+<article class="main-article">
+
+  <header class="article-header">
+  
+<div class="header-text">
+   {%- if section.settings.blog_show_date -%}
+      <span class="info-article-header">
+       {{ article.published_at | time_tag: '%a, %b %d, %Y' }}
+      </span>
+    {%- endif -%}
+    <h1 class="title-article">{{ article.title }}</h1>
+
+    {%- if section.settings.blog_show_author -%}
+      <span class="info-article-header">
+        By {{ article.author }}
+      </span>
+    {%- endif -%}
+</div>
+
+        {%- if article.image -%}
+          <div class="article-template__hero-container" {{ block.shopify_attributes }}>
+            <div class="round-text">
+              <svg id="tutorial" data-name="tutorial" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144.48 144.48">
+               <path class="shape" id="shape" d="M242.93,123A71.74,71.74,0,1,1,171.2,51.22,71.73,71.73,0,0,1,242.93,123Z" transform="translate(-98.96 -50.72)"/>
+                <text font-family="arial" font-size="14" fill="black">
+                 <textPath xlink:href="#shape"  id="textPath">'ISSUE 9' 'ISSUE 9' 'ISSUE 9' 'ISSUE 9' 'ISSUE 9' 'ISSUE 9' 'ISSUE 9' ISSUE 9</textPath>     
+                </text>
+              </svg>
+             </div>
+            <div class="article-template__hero-{{ block.settings.image_height }} media"
+              itemprop="image"
+              {% if block.settings.image_height == 'adapt' and article.image %} {% endif %}
+            >
+              <img class="article-head-image"
+                srcset="{% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
+                  {% if article.image.width >= 750 %}{{ article.image | image_url: width: 750 }} 750w,{% endif %}
+                  {% if article.image.width >= 1100 %}{{ article.image | image_url: width: 1100 }} 1100w,{% endif %}
+                  {% if article.image.width >= 1500 %}{{ article.image | image_url: width: 1500 }} 1500w,{% endif %}
+                  {% if article.image.width >= 2200 %}{{ article.image | image_url: width: 2200 }} 2200w,{% endif %}
+                  {% if article.image.width >= 3000 %}{{ article.image | image_url: width: 3000 }} 3000w,{% endif %}
+                  {{ article.image | image_url }} {{ article.image.width }}w"
+                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
+                src="{{ article.image | image_url: width: 1100 }}"
+                loading="eager"
+                fetchpriority="high"
+                width="{{ article.image.width }}"
+                height="{{ article.image.height }}"
+                alt="{{ article.image.alt | escape }}">
+            </div>
+          </div>
+        {%- endif -%}      
+  </header>
+
+
+
+  
+
+  <div class="content-article">
+  {{ article.content }}
+  </div>
+  {%- if article.tags.size > 0 -%}
+    <footer>
+      <ul aria-label="Tags">
+      {%- for tag in article.tags -%}
+        <li>
+          <a href="{{ blog.url }}/tagged/{{ tag | handle }}">
+            {{ tag }}
+          </a>
+        </li>
+      {%- endfor -%}
+      </ul>
+    <footer>
+  {%- endif -%}
+
+  <div class="article-template__back element-margin-top center">
+    <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
+      <span class="icon-wrap">{% render 'icon-arrow' %}</span>
+      {{ 'blogs.article.back_to_blog' | t: title: blog.title }}
+    </a>
+  </div>
+
+</article>
+
+{% javascript %}
+const textPath = document.querySelector("#textPath");
+
+const a = document.documentElement, 
+      b = document.body,
+      st = 'scrollTop',
+      sh = 'scrollHeight';
+
+document.addEventListener("scroll", event => {
+  let percent = (a[st]||b[st]) / ((a[sh]||b[sh]) - a.clientHeight) * 100;
+  textPath.setAttribute("startOffset", (percent * 5) + 10)
+});
+
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Posts",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "blog_show_author",
+      "label": "Show author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_date",
+      "label": "Show date",
+      "default": true
+    }
+  ]
+}
+{% endschema %}
