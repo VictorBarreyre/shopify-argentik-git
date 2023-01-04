@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "88091ca4-4139-4ebe-9134-9c52b5a06fe7": {
+      "type": "good-list-custom",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "88091ca4-4139-4ebe-9134-9c52b5a06fe7"
+  ]
+}

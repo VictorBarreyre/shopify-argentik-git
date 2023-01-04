@@ -1,0 +1,69 @@
+{{ 'black-custom-header.css' | asset_url | stylesheet_tag }}
+
+
+
+<header class="good-head-black">
+
+    <nav class ="header-nav-black">
+      <a href="https://argentikmag.fr/">
+        <img class="goodhead-logo-black" src="https://cdn.shopify.com/s/files/1/0659/9062/3464/files/black-logo.svg?v=1661883189">
+        </a>
+        <ul class="black-li-head">
+            <li><a class="black-li" href="https://argentikmag.fr/pages/about"> About</a></li>
+            <li ><a class="black-li" href="https://argentikmag.fr/pages/contact"> Contact</a></li>
+            <li ><a class="black-li"href="https://argentikmag.fr/collections/all"> Shop</a></li>
+        </ul>
+
+        <div class="horloge-black">
+            <div id="clock">8:10:45</div>
+            <script>
+              setInterval(showTime, 1000);
+              function showTime() {
+                let time = new Date();
+                let hour = time.getHours();
+                let min = time.getMinutes();
+                let sec = time.getSeconds();
+                am_pm = "AM";
+    
+                if (hour > 12) {
+                  hour -= 12;
+                  am_pm = "PM";
+                }
+                if (hour == 0) {
+                  hr = 12;
+                  am_pm = "AM";
+                }
+    
+                hour = hour < 10
+                  ? "0" + hour
+                  : hour;
+                min = min < 10
+                  ? "0" + min
+                  : min;
+                sec = sec < 10
+                  ? "0" + sec
+                  : sec;
+    
+                let currentTime = hour + ":" + min + ":" + sec + am_pm;
+    
+                document.getElementById("clock").innerHTML = currentTime;
+              }
+              showTime();
+            </script>
+          </div>
+
+          <button class="ig-btn-blackmenu">
+            <a class="ig-btnblackmenu" href="https://www.instagram.com/argentikmag/?hl=fr" target="_blank">Instagram</a>
+          </button>
+    
+          <a class="basket-blackmenu" href="https://argentikmag.fr/cart">
+            <img class="black-sketba" src="https://cdn.shopify.com/s/files/1/0659/9062/3464/files/cart.svg?v=1662225174">
+          </a>
+        </div>
+
+
+    </nav>
+  </header>
+
+
+        

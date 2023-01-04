@@ -1,0 +1,79 @@
+{{ 'good-carrousel-nike.css' | asset_url | stylesheet_tag }}
+<div class="ensemble-fleche">
+        <img src="https://cdn.shopify.com/s/files/1/0659/9062/3464/files/fleche_gauche.svg?v=1672178081" class="img-svg1" >
+        
+        <div class="slide">
+            <div class="card card1"></div>
+            <div class="card card2"></div>
+            <div class="card card3"></div>
+            <div class="card card4"></div>
+            <div class="card card5"></div>
+            <div class="card card6"></div>
+            <div class="card card7"></div>
+            <div class="card card8"></div>
+            <div class="card card9"></div>
+            <div class="card cardX"></div>
+        </div>
+        <img src="https://cdn.shopify.com/s/files/1/0659/9062/3464/files/fleche_droite.svg?v=1672178081" class="img-svg2" >
+    </div>
+<script>
+    var tab=document.querySelectorAll(".card");
+    var fleche1=document.querySelector(".img-svg1");
+    var fleche2=document.querySelector(".img-svg2");
+    var slide=document.querySelector(".slide");
+    var indice_carte_milieu=1;
+    function augmenter(variable) {
+            variable.style="z-index:2;transform: scale(1.2);width:calc(2*100%);";
+    }
+    function diminuer(variable) {
+        variable.style="transform: scale(1); z-index=1";
+        
+    }
+    
+    window.onload=()=>{
+        augmenter(tab[indice_carte_milieu]);
+    }
+    
+    fleche1.onclick=()=>{
+        if(indice_carte_milieu!=1){
+        diminuer(tab[indice_carte_milieu]);
+        console.log(tab[indice_carte_milieu].width);
+        augmenter(tab[indice_carte_milieu-1]);
+        slide.scrollBy(0,-210);
+        indice_carte_milieu=indice_carte_milieu-1;
+        }
+     }
+    
+    fleche2.onclick=()=>{
+       if(indice_carte_milieu!=9){
+       
+        diminuer(tab[indice_carte_milieu]);
+        augmenter(tab[indice_carte_milieu+1]);
+        slide.scrollBy(0,210);
+        indice_carte_milieu=indice_carte_milieu+1;
+       }
+       
+       
+    }
+
+</script>
+ 
+{% schema %}
+    {
+    "name": "good-caroussel-nike",
+    "settings": [],
+    "presets": [
+    {
+    "name": "good-caroussel-nike",
+    "category": "ADVANCED LAYOUT"
+    }
+    ]
+    }
+    {% endschema %}
+    {% stylesheet %} 
+    {% endstylesheet %}
+    {% javascript %}
+
+
+    {% endjavascript %}
+

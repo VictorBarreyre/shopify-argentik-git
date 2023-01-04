@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "0f12da1a-8a91-42c5-b2e5-3c96cf217f97": {
+      "type": "carroussel-nike-hoi",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "0f12da1a-8a91-42c5-b2e5-3c96cf217f97"
+  ]
+}

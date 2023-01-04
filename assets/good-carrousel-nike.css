@@ -1,0 +1,58 @@
+.slide{
+    padding-top: 80px;
+    padding-bottom: 80px;
+     display: flex;
+     overflow:scroll;
+     scroll-behavior: smooth;
+ }
+
+ .fleches{
+    position: fixed
+ }
+ 
+ .ensemble-fleche{
+     width:700px;
+     min-width: 100%;
+     display: flex;
+     margin: auto;
+     
+ }
+
+ ::-webkit-scrollbar{
+     display: none;
+ }
+ .card{
+border: 1px solid whitesmoke;
+width:200px;
+height: 400px;
+min-width: 40vw;
+min-height:400px;
+transition-duration: 1000ms;
+margin: 5px;
+z-index: 1;
+}
+.card1{
+background: url(https://cdn.shopify.com/s/files/1/0659/9062/3464/files/ISSUE_9_SPORT-2_copie.jpg?v=1672072322);
+background-size: cover;
+}
+.card2{
+background:url(https://cdn.shopify.com/s/files/1/0659/9062/3464/files/ISSUE_9_SPORT-6_copie.jpg?v=1672072324);
+background-size: cover;
+
+}
+.card3{
+background:url(https://cdn.shopify.com/s/files/1/0659/9062/3464/files/ISSUE_9_SPORT-4_copie.jpg?v=1672072324);
+background-size: cover;
+}
+.card4{
+background:url(https://cdn.shopify.com/s/files/1/0659/9062/3464/files/ISSUE_9_SPORT-5_copie.jpg?v=1672072324);
+background-size: cover;
+}
+.card5{
+background:url(https://cdn.shopify.com/s/files/1/0659/9062/3464/files/ISSUE_9_SPORT-5_copie.jpg?v=1672072324);
+background-size: cover;
+}
+.card6{
+background:url(https://cdn.shopify.com/s/files/1/0659/9062/3464/files/ISSUE_9_SPORT-3_copie.jpg?v=1672072325);
+background-size: cover;
+}

@@ -1,0 +1,64 @@
+{{ 'white-custom-header.css' | asset_url | stylesheet_tag }}
+
+<header class="good-head-white">
+
+    <nav class ="header-nav-white">
+        <a href="https://argentikmag.fr/">
+        <img class="goodhead-logo-white" src="https://cdn.shopify.com/s/files/1/0659/9062/3464/files/White-logo.svg?v=1661803763">
+        </a>
+
+        <ul class="white-li-head">
+            <li><a class="white-li" href="https://argentikmag.fr/pages/about"> About</a></li>
+            <li ><a class="white-li" href="https://argentikmag.fr/pages/contact"> Contact</a></li>
+            <li ><a class="white-li"href="https://argentikmag.fr/collections/all"> Shop</a></li>
+        </ul>
+
+        <div class="horloge-white">
+            <div id="clock">8:10:45</div>
+            <script>
+              setInterval(showTime, 1000);
+              function showTime() {
+                let time = new Date();
+                let hour = time.getHours();
+                let min = time.getMinutes();
+                let sec = time.getSeconds();
+                am_pm = "AM";
+    
+                if (hour > 12) {
+                  hour -= 12;
+                  am_pm = "PM";
+                }
+                if (hour == 0) {
+                  hr = 12;
+                  am_pm = "AM";
+                }
+    
+                hour = hour < 10
+                  ? "0" + hour
+                  : hour;
+                min = min < 10
+                  ? "0" + min
+                  : min;
+                sec = sec < 10
+                  ? "0" + sec
+                  : sec;
+    
+                let currentTime = hour + ":" + min + ":" + sec + am_pm;
+    
+                document.getElementById("clock").innerHTML = currentTime;
+              }
+              showTime();
+            </script>
+          </div>
+
+          <button class="ig-btn-whitemenu">
+            <a class="ig-btnwhitemenu" href="https://www.instagram.com/argentikmag/?hl=fr" target="_blank">Instagram</a>
+          </button>
+    
+          <a class="basket-whitemenu" href="https://argentikmag.fr/cart">
+            <img class="white-sketba" src="https://cdn.shopify.com/s/files/1/0659/9062/3464/files/white-cart.svg?v=1662226510">
+          </a>
+        </div>
+
+    </nav>
+  </header>
